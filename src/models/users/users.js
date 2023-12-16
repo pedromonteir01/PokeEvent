@@ -33,4 +33,14 @@ export default class Users {
 
         return user;
     }
+
+    deleteUser(id) {
+        const user = this.getUserById(id);
+
+        if(user) {
+            this.users = this.users.filter((user) => user.id !== id);
+        }
+
+        return this.users;
+    }
 }

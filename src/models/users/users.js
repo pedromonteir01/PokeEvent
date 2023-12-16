@@ -13,4 +13,8 @@ export default class Users {
         const user = this.users.filter((user) => user.id == id);
         return user;
     }
+
+    createUser(user) {
+        this.users.push(user);
+    }
 }

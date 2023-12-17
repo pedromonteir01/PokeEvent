@@ -1,6 +1,6 @@
 import e from "express";
-import Users from "../../models/users/users";
-import User from "../../models/users/user";
+import Users from "../../models/users/users.js";
+import User from "../../models/users/user.js";
 
 //instancia a lista
 const usersList = new Users();

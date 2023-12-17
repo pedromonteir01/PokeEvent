@@ -1,5 +1,6 @@
 import e from "express";
 import Users from "../../models/users/users";
+import User from "../../models/users/user";
 
 //instancia a lista
 const usersList = new Users();
@@ -63,9 +64,11 @@ export const postUser = (req, res) => {
         errors.push('invalid_balance');
     }
 
-    errors.length ? (
+    if(errors.length) {
         return res.status(400).send({ errors });
-    ) : (
-        const user 
-    )
+    } else {
+        const user = new User(name, email, password, cpf, telephone, birthdate, balance);
+        usersList.createUser(user);
+        return res.status(200).send({ user });
+    }
 }

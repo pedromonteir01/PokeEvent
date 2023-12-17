@@ -19,7 +19,7 @@ export default class User {
         const birthdate = new Date(birth);
         const today = new Date();
 
-        const age = today.getFullYear() = birthdate.getFullYear();
+        let age = today.getFullYear() - birthdate.getFullYear();
         //verify age
         if(today.getMonth() < birthdate.getMonth() || today.getMonth() == birthdate.getMonth() && today.getDay() < birthdate.getDay()) {
             age--;

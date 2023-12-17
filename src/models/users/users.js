@@ -10,8 +10,7 @@ export default class Users {
     }
 
     getUserById(id) {
-        const user = this.users.filter((user) => user.id == id);
-        return user;
+        return this.users.find((user) => user._id == id);
     }
 
     createUser(user) {
@@ -35,12 +34,6 @@ export default class Users {
     }
 
     deleteUser(id) {
-        const user = this.getUserById(id);
-
-        if(user) {
-            this.users = this.users.filter((user) => user.id !== id);
-        }
-
-        return this.users;
+        return this.users = this.users.filter((user) => user._id !== id);
     }
 }

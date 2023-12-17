@@ -24,11 +24,12 @@ export const getUserById = (req, res) => {
 
     if(user) {
         return res.status(200).send(user);
-    } else {
+    } 
+
         return res.status(400).send({
             message: 'invalid_id'
         });
-    }
+    
 }
 
 export const postUser = (req, res) => {

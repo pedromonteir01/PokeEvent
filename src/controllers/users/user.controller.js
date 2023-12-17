@@ -88,3 +88,15 @@ export const putUser = (req, res) => {
     }
 
 }
+
+export const deleteUser = (req, res) => {
+    const { id } = req.params;
+    const user = usersList.deleteUser(id);
+    if(user) {
+        return res.status(200).send({ user });
+    } else {
+        return res.status(400).send({
+            message: 'invalid_id'
+        });
+    }
+}

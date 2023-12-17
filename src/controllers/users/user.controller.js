@@ -11,11 +11,11 @@ export const getAllUsers = (req, res) => {
     //verifica se existe usuários
     if(users.length) {
         return res.status(200).send({ users, quantity: users.length });
+    } else {
+        return res.status(200).send({
+            message: 'no_users_registered'
+        });
     }
-
-    return res.status(200).send({
-        message: 'no_users_registered'
-    });
 }
 
 export const getUserById = (req, res) => {
@@ -24,11 +24,11 @@ export const getUserById = (req, res) => {
 
     if(user) {
         return res.status(200).send(user);
+    } else {
+        return res.status(400).send({
+            message: 'invalid_id'
+        });
     }
-
-    return res.status(400).send({
-        message: 'invalid_id'
-    });
 }
 
 export const postUser = (req, res) => {
@@ -71,4 +71,20 @@ export const postUser = (req, res) => {
         usersList.createUser(user);
         return res.status(200).send({ user });
     }
+}
+
+export const putUser = (req, res) => {
+    const { id } = req.params;
+    const { name, email, password, cpf, telephone, birthdate, balance } = req.body;
+
+    const user = usersList.editUser(id, name, email, password, cpf, telephone, birthdate, balance);
+
+    if(user) {
+        return res.status(200).send({ user });
+    } else {
+        return res.status(400).send({
+            message: 'invalid_id'
+        });
+    }
+
 }
